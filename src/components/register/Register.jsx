@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const baseurl="https://auth-mern-yt.onrender.com"
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Register = () => {
 
     if (name && email && password && password === reEnterPassword) {
       await axios
-        .post("http://localhost:8000/register", user)
+        .post(`${baseurl}/register`, user)
         .then(function (response) {
           if (response.data === "Exist") {
             alert("User Already Registered");

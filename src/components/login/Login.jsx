@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const baseurl="https://auth-mern-yt.onrender.com"
 
 const Login = ({ setLoginUser }) => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Login = ({ setLoginUser }) => {
 
     if (email && password) {
       await axios
-        .post("http://localhost:8000/login", {
+        .post(`${baseurl}/login`, {
           //user  //if pass user it will {{user: { email: 'f@gmail.com', password: 'b37D3@iG7GXw2C4' }}} destruturing will not work
           email,
           password, // will pass { email: 'f@gmail.com', password: 'b37D3@iG7GXw2C' }
